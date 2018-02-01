@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link  href="{{ asset ('/css/plantilla.css') }}" rel="stylesheet">
+<link  href="{{ asset ('/css/estilos.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <h1>Lista de jugadores</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fechanacimiento</th>
+                <th>Categoria</th>
+                <th>Altura</th>
+                <th>Peso</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carlet in jugadores %}
+            <tr>
+                <td><a href="{{ path('mostrar_jugador', { 'id': carlet.id }) }}">{{ carlet.id }}</a></td>
+                <td>{{ carlet.nombre }}</td>
+                <td>{{ carlet.apellidos }}</td>
+                <td>{% if carlet.fechaNacimiento %}{{ carlet.fechaNacimiento|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ carlet.categoria }}</td>
+                <td>{{ carlet.altura }}</td>
+                <td>{{ carlet.peso }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('mostrar_jugador', { 'id': carlet.id }) }}">Mostrar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('editar_jugador', { 'id': carlet.id }) }}">Editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('nuevo_jugador') }}">Crear nuevo jugador</a>
+        </li>
+    </ul>
+{% endblock %}

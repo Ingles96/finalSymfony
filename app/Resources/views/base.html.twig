@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %} Bienvenido {% endblock %}</title>
+    {% block stylesheets %}
+<link  href="{{ asset ('/css/estilos.css') }}" rel="stylesheet">
+  {% endblock %}
+
+  </head>
+  <body>
+    <img src="{{ asset('carlet.jpg') }}" alt=""> <a>CARLET EMF C.F.</a>
+
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('logout')}}">Salir</a>
+    {% endif %}
+
+
+<div class="menu">
+    <ul>
+      <li><a href="{{ path("inicio")}}">Inicio</a></li>
+      <li><a href="{{ path("noticias")}}">Noticias</a></li>
+      <li><a href="{{ path("inscripciones")}}">Inscripciones</a></li>
+      <li><a href="{{ path("instalaciones")}}">Instalaciones</a></li>
+      <li><a href="{{ path("contacto")}}">Contacto</a></li>
+      <li><a href="{{ path("plantilla")}}">Plantilla</a></li>
+      <li><a href="{{ path("calendario_y_horarios")}}">Calendario y horarios</a></li>
+      <li><a href="{{ path("resultados_y_clasificacion")}}">Resultados y clasificacion</a></li>
+      <li><a href="{{ path("rankings")}}">Rankings</a></li>
+      <li><a href="{{ path("mi_perfil")}}">Mi perfil</a></li>
+      <li><a href="{{ path("usuario_index")}}">Gestor usuarios</a></li>
+    </ul>
+</div>
+
+{% block body %}{% endblock %}
+
+<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>Carlet E.M.F<span> Club de Futbol</span></h3>
+
+    <p class="footer-links">
+      <a href="{{ path("inicio")}}">Inicio</a>
+      ·
+      <a href="{{ path("contacto")}}">Contacto</a>
+      ·
+      <a href="{{ path("noticias")}}">Noticias</a>
+      ·
+    </p>
+
+    <p class="footer-company-name"> Copyright &copy; 2017,Carlet E.M.F C.F</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+      <p><span>Av. Chilly-Mazarin, 2</span> Carlet, España</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+34 662032992</p>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="https://gmail.com">carletemf@gmail.com</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <p class="footer-company-about">
+      <span>Sobre nuestro club de futbol</span>
+      Esta pagina esta dedicada a informar sobre nuestros equipos de futbol, calendario y resultados de cada equipo.
+    </p>
+
+    <div class="footer-icons">
+
+      <a href="https://facebook.com"><img src="http://3.bp.blogspot.com/-MQuocq7OzfU/UiXwUY81yQI/AAAAAAAAB0Q/h6-R_R2-buI/s1600/face.png" title="Dale mg a nuestra pagina de facebook" /></a>
+    </div>
+
+  </div>
+
+</footer>
+    {% block javascripts %}{% endblock %}
+  </body>
+</html>

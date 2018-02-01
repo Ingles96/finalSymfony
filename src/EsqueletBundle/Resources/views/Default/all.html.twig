@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %} Bienvenido {% endblock %}</title>
+    {% block stylesheets %}
+<link  href="{{ asset ('/css/estilos.css') }}" rel="stylesheet">
+  {% endblock %}
+
+  </head>
+  <body>
+    {% block body %}
+    <img src="{{ asset('carlet.jpg') }}" alt=""> <a>CARLET EMF C.F.</a>
+<div class="menu">
+    <ul>
+      <li><a href="{{ path("inicio")}}">Inicio</a></li>
+      <li><a href="{{ path("noticias")}}">Noticias</a></li>
+      <li><a href="{{ path("inscripciones")}}">Inscripciones</a></li>
+      <li><a href="{{ path("instalaciones")}}">Instalaciones</a></li>
+      <li><a href="{{ path("contacto")}}">Contacto</a></li>
+      <li><a href="{{ path("plantilla")}}">Plantilla</a></li>
+      <li><a href="{{ path("calendario_y_horarios")}}">Calendario y horarios</a></li>
+      <li><a href="{{ path("resultados_y_clasificacion")}}">Resultados y clasificacion</a></li>
+      <li><a href="{{ path("rankings")}}">Rankings</a></li>
+      <li><a href="{{ path("mi_perfil")}}">Mi perfil</a></li>
+    </ul>
+</div>
+
+
+{% for futbol in evento %}
+<li>{{ futbol.nombre }}</li>
+{% endfor %}
+
+
+<footer>Esto es el footer de la pagina web de la escuela de futbol de Carlet</footer>
+    {% endblock %}
+    {% block javascripts %}{% endblock %}
+  </body>
+</html>
